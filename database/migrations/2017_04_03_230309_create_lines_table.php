@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNodesTable extends Migration
+class CreateLinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateNodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('nodes',function (Blueprint $blueprint){
-
+        Schema::create('lines',function (Blueprint $blueprint){
             $blueprint->increments('id');
-            $blueprint->string('name');
-            $blueprint->text('description');
-
+            $blueprint->text('name');
         });
-    }
+;    }
 
     /**
      * Reverse the migrations.
@@ -29,7 +26,6 @@ class CreateNodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nodes');
-
+        Schema::dropIfExists('lines');
     }
 }
