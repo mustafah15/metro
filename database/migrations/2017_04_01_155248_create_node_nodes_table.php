@@ -16,7 +16,7 @@ class CreateNodeNodesTable extends Migration
         Schema::create('node_nodes',function (Blueprint $blueprint){
             $blueprint->integer('from_node')->unsigned();
             $blueprint->integer('to_node')->unsigned();
-
+            $blueprint->integer('time');
             $blueprint->foreign('from_node')->references('id')->on('nodes')
                 ->onDelete('cascade');
             $blueprint->foreign('to_node')->references('id')->on('nodes')
