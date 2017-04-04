@@ -18,6 +18,7 @@ class CreateNodesTable extends Migration
             $blueprint->increments('id');
             $blueprint->string('name');
             $blueprint->text('description');
+            $blueprint->timestamps();
 
         });
     }

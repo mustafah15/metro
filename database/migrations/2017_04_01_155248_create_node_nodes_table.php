@@ -21,6 +21,7 @@ class CreateNodeNodesTable extends Migration
                 ->onDelete('cascade');
             $blueprint->foreign('to_node')->references('id')->on('nodes')
                 ->onDelete('cascade');
+            $blueprint->timestamps();
         });
     }
 

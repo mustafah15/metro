@@ -15,7 +15,9 @@ class CreateLinesTable extends Migration
     {
         Schema::create('lines',function (Blueprint $blueprint){
             $blueprint->increments('id');
-            $blueprint->text('name');
+            $blueprint->string('name');
+            $blueprint->timestamps();
+
         });
 ;    }
 

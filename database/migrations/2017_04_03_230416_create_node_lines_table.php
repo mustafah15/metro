@@ -20,6 +20,7 @@ class CreateNodeLinesTable extends Migration
             $blueprint->foreign('node_id')->references('id')->on('nodes');
             $blueprint->foreign('line_id')->references('id')->on('lines');
 
+            $blueprint->timestamps();
         });
     }
 
