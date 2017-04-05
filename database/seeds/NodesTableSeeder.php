@@ -138,6 +138,16 @@ class NodesTableSeeder extends Seeder
         Node::firstOrCreate(['name'=>'Kolleyyet El-Zeraa' , 'ar_name'=>'كلية الزراعة', 'description' => 'second line 18th station'])->lines()->attach([2]);
         Node::firstOrCreate(['name'=>'Shubra El-Kheima' , 'ar_name'=>'شبرا الخيمة', 'description' => 'second line 19th station'])->lines()->attach([2]);
 
-        // third line stations 
+        // third line stations
+        Node::firstOrCreate(['name'=>'Attaba' , 'ar_name'=>'العتبة', 'description' => 'third line first station '])->lines()->attach([3,2]);
+        Node::firstOrCreate(['name'=>'Bab El-Shaaria' , 'ar_name'=>'باب الشعرية', 'description' => 'third line second station '])->lines()->attach([3]);
+        Node::firstOrCreate(['name'=>'El-Geish' , 'ar_name'=>'الجيش', 'description' => 'third line third station '])->lines()->attach([3]);
+        Node::firstOrCreate(['name'=>'Abdou Pasha' , 'ar_name'=>'عبده باشا', 'description' => 'third line fourth station '])->lines()->attach([3]);
+        Node::firstOrCreate(['name'=>'Abbassiya' , 'ar_name'=>'العباسية', 'description' => 'third line fifth station '])->lines()->attach([3]);
+        Node::firstOrCreate(['name'=>'Fair Zone' , 'ar_name'=>'أرض المعارض', 'description' => 'third line 6th station '])->lines()->attach([3]);
+        Node::firstOrCreate(['name'=>'Stadium' , 'ar_name'=>'الإستاد', 'description' => 'third line 7th station '])->lines()->attach([3]);
+        Node::firstOrCreate(['name'=>'Koleyet El-Banat' , 'ar_name'=>'كلية البنات', 'description' => 'third line 8th station '])->lines()->attach([3]);
+        Node::firstOrCreate(['name'=>'Al-Ahram' , 'ar_name'=>'الأهرام', 'description' => 'third line 9th station '])->lines()->attach([3]);
+
     }
 }
