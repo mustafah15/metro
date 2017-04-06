@@ -129,7 +129,6 @@ class NodesTableSeeder extends Seeder
         Node::firstOrCreate(['name'=>'Dokki' , 'ar_name'=>'الدقي', 'description' => 'second line 8th station'])->lines()->attach([2]);
         Node::firstOrCreate(['name'=>'Opera' , 'ar_name'=>'الأوبرا', 'description' => 'second line 9th station'])->lines()->attach([2]);
         Node::firstOrCreate(['name'=>'Mohamed Naguib' , 'ar_name'=>'محمد نجيب', 'description' => 'second line 11th station'])->lines()->attach([2]);
-        Node::firstOrCreate(['name'=>'Attaba' , 'ar_name'=>'العتبة', 'description' => 'second line 12th station'])->lines()->attach([2,3]);
         Node::firstOrCreate(['name'=>'Masarra' , 'ar_name'=>'مسرة', 'description' => 'second line 13th station'])->lines()->attach([2]);
         Node::firstOrCreate(['name'=>'Rod El-Farag' , 'ar_name'=>'روض الفرج', 'description' => 'second line 14th station'])->lines()->attach([2]);
         Node::firstOrCreate(['name'=>'St. Teresa' , 'ar_name'=>'سانتا تريزا	', 'description' => 'second line 15th station'])->lines()->attach([2]);
