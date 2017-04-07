@@ -18,5 +18,14 @@ class Line extends Model
         'name','id'
     ];
 
+    /**
+     * Line has many nodes - in a many to many relationship
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function nodes()
+    {
+        return $this->belongsToMany('\App\Node', 'node_lines');
+    }
+
 
 }

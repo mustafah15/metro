@@ -25,7 +25,7 @@ class Node extends Model
      */
     public function fromNodes()
     {
-        return $this->belongsToMany('App\node','node_nodes','from_node','id');
+        return $this->belongsToMany('App\node','node_nodes','to_node', 'from_node')->withPivot('time');
     }
 
     /**
@@ -33,8 +33,9 @@ class Node extends Model
      */
     public function toNodes()
     {
-        return $this->belongsToMany('App\node','node_nodes','to_node','id');
+        return $this->belongsToMany('App\node','node_nodes','from_node','to_node')->withPivot('time');
     }
+    
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
