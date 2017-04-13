@@ -26,13 +26,13 @@ class NodeRepository extends BaseRepository
      * @param $nodeId
      * @return /Illuminate/Collection
      */
-    public function getBoundariesNodes($nodeId)
+    public function getBoundariesNodes( $nodeId )
     {
         //get perv node
-        $fromNodes = $this->getPreviousNodes($nodeId);
+        $fromNodes = $this->getPreviousNodes( $nodeId );
 
         //get next node
-        $toNodes = $this->getNextNodes($nodeId);
+        $toNodes = $this->getNextNodes( $nodeId );
 
         //return collection
         $nodes = collect( array_merge( $fromNodes->toArray(), $toNodes->toArray() ) );
@@ -44,7 +44,7 @@ class NodeRepository extends BaseRepository
      * @param $nodeId
      * @return /Illuminate/Collection
      */
-    public function getPreviousNodes($nodeId)
+    public function getPreviousNodes( $nodeId )
     {
         return $this->model->with('fromNodes')->where( 'id', $nodeId )->get()[0]->fromNodes;
     }
@@ -53,7 +53,7 @@ class NodeRepository extends BaseRepository
      * @param $nodeId
      * @return /Illuminate/Collection
      */
-    public function getNextNodes($nodeId)
+    public function getNextNodes( $nodeId )
     {
         return $this->model->with('toNodes')->where( 'id', $nodeId )->get()[0]->toNodes;
     }

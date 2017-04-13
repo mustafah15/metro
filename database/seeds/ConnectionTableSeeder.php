@@ -76,7 +76,7 @@ class ConnectionTableSeeder extends Seeder
     }
 
     /**
-     * Attach adjacent statiosn that belongs to a line
+     * Attach adjacent stations that belongs to a line
      * @param $line
      * @return bool
      */
