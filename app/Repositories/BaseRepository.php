@@ -44,15 +44,14 @@ abstract class BaseRepository implements RepositoryContract
      */
     public function addItem(array $data)
     {
-        if($data)
-        {
-            foreach ($data as $key => $value)
-                if ($value)
+        if ($data) {
+            foreach ($data as $key => $value) {
+                if ($value) {
                     $this->model->$key = $value;
-
+                }
+            }
             $this->model->save();
         }
-
         return $this->model;
     }
 
@@ -64,13 +63,12 @@ abstract class BaseRepository implements RepositoryContract
     public function editItem($itemId, array $data)
     {
         $item =  $this->getItemByID($itemId);
-
-        if($data)
-        {
-            foreach ($data as $key => $value)
-                if($value)
+        if ($data) {
+            foreach ($data as $key => $value) {
+                if ($value) {
                     $item->$key = $value;
-
+                }
+            }
             $item->save();
         }
 
@@ -95,7 +93,6 @@ abstract class BaseRepository implements RepositoryContract
     public function deleteItemById($itemId)
     {
         return $this->model->delete($itemId);
-
     }
 
     /**

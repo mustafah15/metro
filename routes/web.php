@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/',['uses'=>'NodeController@getIndex','as'=>'home']);
+Route::get('/', ['uses'=>'NodeController@getIndex','as'=>'home']);

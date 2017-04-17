@@ -25,7 +25,7 @@ class Node extends Model
      */
     public function fromNodes()
     {
-        return $this->belongsToMany('App\node','node_nodes','to_node', 'from_node')->withPivot('time');
+        return $this->belongsToMany('App\node', 'node_nodes', 'to_node', 'from_node');
     }
 
     /**
@@ -33,7 +33,7 @@ class Node extends Model
      */
     public function toNodes()
     {
-        return $this->belongsToMany('App\node','node_nodes','from_node','to_node')->withPivot('time');
+        return $this->belongsToMany('App\node', 'node_nodes', 'from_node', 'to_node');
     }
     
 
@@ -42,7 +42,6 @@ class Node extends Model
      */
     public function lines()
     {
-        return $this->belongsToMany('App\Line','node_lines','node_id','line_id');
+        return $this->belongsToMany('App\Line', 'node_lines', 'node_id', 'line_id');
     }
-
 }

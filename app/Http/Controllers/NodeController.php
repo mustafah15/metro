@@ -8,13 +8,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\NodeRepository;
+use App\Managers\NodeManager;
 use Illuminate\Routing\Controller as BaseController;
 
 class NodeController extends BaseController
 {
+    protected $manager ;
+
+    public function __construct()
+    {
+        $this->manager = new NodeManager();
+    }
+
     public function getIndex()
     {
-
+        return dd($this->manager->buildGraph(5));
     }
 }

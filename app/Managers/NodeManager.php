@@ -8,15 +8,16 @@
 
 namespace App\Managers;
 
+use App\Traits\Graphable;
 
 class NodeManager extends BaseManager
 {
-
+    use Graphable;
     /**
      * @param $item
      * @return array
      */
-    public function wrap( $item )
+    public function wrap($item)
     {
         return ['name'=>$item->name];
     }
