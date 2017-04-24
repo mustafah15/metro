@@ -16,26 +16,29 @@ trait Graphable
 {
     public function buildGraph($nodeId)
     {
-
+        return $this->buildMatrix();
     }
 
     public function buildMatrix()
     {
         $paths = NodesNode::all(['from_node','to_node'])->toArray();
-        $result = [];
-        foreach ($paths as $path) {
-            $result[$path['from_node']][$path['to_node']] = 1;
+        $values = [];
+        for ($i = 0; $i < count($paths); $i++) {
+            if (array_values($paths[$i])[2]) {
+                $values[array_values($paths[$i])[0]][array_values($paths[$i])[1]] = 1 ;
+            }
         }
-        return $result;
+        return $values;
     }
 
     public function path($sourceId, $destinationId)
     {
-        $stack = [];
         $repository = new NodeRepository();
         $previous = [];
+        $next = '';
         $visited = [$sourceId];
         $stack = $repository->getBoundariesNodes($sourceId)->toArray();
+
         while (true) {
             if (!$stack) {
                 return 0;
@@ -44,27 +47,17 @@ trait Graphable
                 if (in_array($node, $visited)) {
                     continue;
                 }
-                $array = $repository->getBoundariesNodes($node)->toArray();
-                foreach ($array as $item) {
-                    $stack[] = $item;
-                }
+                $stack = array_merge($stack, $repository->getBoundariesNodes($node)->toArray());
                 $visited[] = $previous[] = $node;
                 if ($node == $destinationId) {
-                    return $previous;
+                    return ['previous,'=>$previous, 'visited'=>$visited];
                 }
             }
         }
     }
 
-    public function paths($graph, $sourceId, $destinationId, $visited = [])
+    public function dijkstra($source, $destination)
     {
-        if (key($graph[$sourceId]) == $destinationId) {
-            return $visited;
-        }
-
-        if (!in_array($graph[$sourceId], $visited))
-            $visited[] = key($graph[$sourceId]);
-        
-        return $this->paths($graph, key($graph[$sourceId]), $destinationId, $visited);
     }
 }
+
